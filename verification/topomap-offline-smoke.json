@@ -1,0 +1,12 @@
+{
+  "mode": "scripts/offline_app.py: outbound Python socket connections and DNS blocked; browser external networking not globally disabled",
+  "workspace": "disposable Finnmark smoke DB",
+  "topographic_view": "z11 rendered in actual browser",
+  "review_id": "R1",
+  "delivery_id": "F1",
+  "review_state": "reopened",
+  "note_preserved": "Offline topographic smoke: await recorded correction.",
+  "scenario_time": "2026-04-23T08:20:00Z",
+  "handover_export_validated": true,
+  "physical_wifi_off_test": false
+}

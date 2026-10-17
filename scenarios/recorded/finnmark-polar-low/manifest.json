@@ -1,0 +1,61 @@
+{
+  "source_url": "https://api.met.no/weatherapi/metalerts/2.0/archive.json?date=2026-04-24&lat=70.3&lon=31.1&geographicDomain=land",
+  "retrieved_at": "2026-10-16T16:02:38.838458+00:00",
+  "kind": "recorded",
+  "publisher": "MET Norway",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "path": "source.geojson",
+      "sha256": "99e5a4962ee367d59c31908c3706f8b39be889bfbcfd3e045746587371e97aba"
+    },
+    {
+      "path": "2.49.0.1.578.0.20260423084136.093.xml",
+      "sha256": "e7f73246f220387a7d447c72bf58887e767346310ec5bfcb5fa7a610efbb7f85"
+    },
+    {
+      "path": "2.49.0.1.578.0.20260423075348.007.xml",
+      "sha256": "a44d6b0ad58d8a8c7768593505cce52179cdf3f0f25f95df0e81cfc9f48feb13"
+    },
+    {
+      "path": "2.49.0.1.578.0.20260422093451.031.xml",
+      "sha256": "c97695bf3b07878b9ea29da1efbf008607e94f4f293afa66799c9a2a4acd9d6f"
+    }
+  ],
+  "notices": [
+    {
+      "id": "2.49.0.1.578.0.20260423084136.093",
+      "sent": "2026-04-23T08:42:21+00:00",
+      "msg_type": "Update",
+      "references": "meteorologi@met.no,2.49.0.1.578.0.20260423075348.007,2026-04-23T08:19:13+00:00 meteorologi@met.no,2.49.0.1.578.0.20260422093451.031,2026-04-22T10:46:55+00:00",
+      "onset": "2026-04-23T09:00:00+00:00",
+      "expires": "2026-04-24T09:00:00+00:00",
+      "source_url": "https://api.met.no/weatherapi/metalerts/2.0/archive?cap=2.49.0.1.578.0.20260423084136.093&period=2026-04",
+      "path": "2.49.0.1.578.0.20260423084136.093.xml",
+      "sha256": "e7f73246f220387a7d447c72bf58887e767346310ec5bfcb5fa7a610efbb7f85"
+    },
+    {
+      "id": "2.49.0.1.578.0.20260423075348.007",
+      "sent": "2026-04-23T08:19:13+00:00",
+      "msg_type": "Update",
+      "references": "meteorologi@met.no,2.49.0.1.578.0.20260422093451.031,2026-04-22T10:46:55+00:00",
+      "onset": "2026-04-23T09:00:00+00:00",
+      "expires": "2026-04-24T09:00:00+00:00",
+      "source_url": "https://api.met.no/weatherapi/metalerts/2.0/archive?cap=2.49.0.1.578.0.20260423075348.007&period=2026-04",
+      "path": "2.49.0.1.578.0.20260423075348.007.xml",
+      "sha256": "a44d6b0ad58d8a8c7768593505cce52179cdf3f0f25f95df0e81cfc9f48feb13"
+    },
+    {
+      "id": "2.49.0.1.578.0.20260422093451.031",
+      "sent": "2026-04-22T10:46:55+00:00",
+      "msg_type": "Alert",
+      "references": null,
+      "onset": "2026-04-23T06:00:00+00:00",
+      "expires": "2026-04-24T07:00:00+00:00",
+      "source_url": "https://api.met.no/weatherapi/metalerts/2.0/archive?cap=2.49.0.1.578.0.20260422093451.031&period=2026-04",
+      "path": "2.49.0.1.578.0.20260422093451.031.xml",
+      "sha256": "c97695bf3b07878b9ea29da1efbf008607e94f4f293afa66799c9a2a4acd9d6f"
+    }
+  ]
+}

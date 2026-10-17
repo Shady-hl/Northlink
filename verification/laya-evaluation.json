@@ -1,0 +1,1429 @@
+{
+  "evaluated_at_utc": "2026-10-16T22:52:49.855267+00:00",
+  "dataset": "northlink-intake-synthetic-v1",
+  "dataset_sha256": "6cafda98649d381266c334507717323c28ee36ea1ab7de95ed9ddfda72b3adef",
+  "question_sha256": "52da3d866bca7a33b2c175e8cc0fcbd12cd297ae9c1481d32ab0fbe3bda6fdf3",
+  "hardware": {
+    "architecture": "arm64",
+    "system": "macOS-27.0.1-arm64-arm-64bit-Mach-O"
+  },
+  "summary": {
+    "baseline": {
+      "correct": 41,
+      "n": 50,
+      "accuracy": 0.82,
+      "by_language": {
+        "en": {
+          "correct": 21,
+          "n": 25
+        },
+        "no": {
+          "correct": 20,
+          "n": 25
+        }
+      },
+      "negation_and_cancellation_errors": 2,
+      "warm_median_ms": 0.012,
+      "confusion": {
+        "access_disruption -> access_disruption": 4,
+        "access_disruption -> unclear": 4,
+        "access_disruption -> access_update": 2,
+        "access_update -> access_update": 10,
+        "weather -> weather": 9,
+        "weather -> unclear": 1,
+        "supply -> supply": 10,
+        "unclear -> unclear": 8,
+        "unclear -> access_disruption": 2
+      }
+    },
+    "laya": {
+      "correct": 28,
+      "n": 50,
+      "accuracy": 0.56,
+      "by_language": {
+        "en": {
+          "correct": 15,
+          "n": 25
+        },
+        "no": {
+          "correct": 13,
+          "n": 25
+        }
+      },
+      "negation_and_cancellation_errors": 14,
+      "warm_median_ms": 71.58,
+      "confusion": {
+        "access_disruption -> weather": 1,
+        "access_disruption -> unclear": 7,
+        "access_disruption -> access_disruption": 2,
+        "access_update -> unclear": 9,
+        "access_update -> weather": 1,
+        "weather -> weather": 8,
+        "weather -> unclear": 2,
+        "supply -> supply": 8,
+        "supply -> unclear": 2,
+        "unclear -> unclear": 10
+      }
+    },
+    "laya_passed_demo_gate": false,
+    "first_request_ms_including_worker_start": 5253.6,
+    "recommendation": "Keep simple rules/manual as default. Laya remains an explicitly labelled experiment; it did not demonstrate an improvement on these examples."
+  },
+  "limitations": [
+    "Hand-labelled synthetic examples; no operational reliability claim.",
+    "No fine-tuning, temperature fitting, prompt selection or confidence threshold tuning on these results.",
+    "No independent field data or representative workload; latency includes this adapter's CPU configuration."
+  ],
+  "cases": [
+    {
+      "id": "EN01",
+      "lang": "en",
+      "text": "The road is closed due to an avalanche.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "131924a69bf47e75553c8696fa8a7d44b2d241aff0014aa05335d8d8cffb1774",
+        "elapsed_ms": 0.37,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "131924a69bf47e75553c8696fa8a7d44b2d241aff0014aa05335d8d8cffb1774",
+        "raw_score": 0.5774,
+        "elapsed_ms": 5189.8,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 5253.6
+    },
+    {
+      "id": "EN02",
+      "lang": "en",
+      "text": "The bridge is blocked by a fallen truck.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "0e33c00351026f6f4ce86dcc458430078ee09f0c9d66178c84e0a8ca77deea21",
+        "elapsed_ms": 0.081,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "0e33c00351026f6f4ce86dcc458430078ee09f0c9d66178c84e0a8ca77deea21",
+        "raw_score": 0.8514,
+        "elapsed_ms": 73.86,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 74.29
+    },
+    {
+      "id": "EN03",
+      "lang": "en",
+      "text": "Heavy vehicles cannot use the road until 18:00.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "b6072d43f0ddf64920b28126f3dc6bb780f1da24757469e07ed2f62761f3178d",
+        "elapsed_ms": 0.347,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "access_disruption",
+        "method": "laya-multilingual",
+        "text_sha256": "b6072d43f0ddf64920b28126f3dc6bb780f1da24757469e07ed2f62761f3178d",
+        "raw_score": 0.5073,
+        "elapsed_ms": 73.35,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 73.5
+    },
+    {
+      "id": "EN04",
+      "lang": "en",
+      "text": "The road closure has not been lifted.",
+      "expected": "access_disruption",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "891247432427984c0827f21e11296b9ebbc95eded16033f72696462ac4d6efbc",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "891247432427984c0827f21e11296b9ebbc95eded16033f72696462ac4d6efbc",
+        "raw_score": 0.4371,
+        "elapsed_ms": 73.24,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 73.4
+    },
+    {
+      "id": "EN05",
+      "lang": "en",
+      "text": "Road access is restricted to vehicles below 3.5 tonnes.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "83bc27dba3625c20a84060693120cede991fce7dc5517ca68f689c2916be2c40",
+        "elapsed_ms": 0.016,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "access_disruption",
+        "method": "laya-multilingual",
+        "text_sha256": "83bc27dba3625c20a84060693120cede991fce7dc5517ca68f689c2916be2c40",
+        "raw_score": 0.598,
+        "elapsed_ms": 74.79,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 74.95
+    },
+    {
+      "id": "NO01",
+      "lang": "no",
+      "text": "Veien er stengt på grunn av snøskred.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "db228d32aed2578eb66afa36b58dad4d0a81764fd0d7e5afa13f3e6a7bbba2e7",
+        "elapsed_ms": 0.026,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "db228d32aed2578eb66afa36b58dad4d0a81764fd0d7e5afa13f3e6a7bbba2e7",
+        "raw_score": 0.6103,
+        "elapsed_ms": 72.63,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.79
+    },
+    {
+      "id": "NO02",
+      "lang": "no",
+      "text": "Brua er sperret av en lastebil.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "82b000cd49827433035e700953dffce408fac3883f9bc08e12972d1fe4a0dcc3",
+        "elapsed_ms": 0.011,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "82b000cd49827433035e700953dffce408fac3883f9bc08e12972d1fe4a0dcc3",
+        "raw_score": 0.4365,
+        "elapsed_ms": 70.37,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.52
+    },
+    {
+      "id": "NO03",
+      "lang": "no",
+      "text": "Tunge kjøretøy kan ikke bruke veien før klokken 18.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "4fd4545ce54f1d544410a04c1986be1c258aa64ce5a79da9327a3e80f7e9f87d",
+        "elapsed_ms": 0.015,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "4fd4545ce54f1d544410a04c1986be1c258aa64ce5a79da9327a3e80f7e9f87d",
+        "raw_score": 0.6623,
+        "elapsed_ms": 70.09,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.23
+    },
+    {
+      "id": "NO04",
+      "lang": "no",
+      "text": "Stengningen av veien er ikke opphevet.",
+      "expected": "access_disruption",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "581b157c5eaed32c631fe04f94927cee1893756471d2a8d12ecb868e1740a014",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "581b157c5eaed32c631fe04f94927cee1893756471d2a8d12ecb868e1740a014",
+        "raw_score": 0.8154,
+        "elapsed_ms": 86.26,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 86.41
+    },
+    {
+      "id": "NO05",
+      "lang": "no",
+      "text": "Veien er kun tillatt for kjøretøy under 3,5 tonn.",
+      "expected": "access_disruption",
+      "tag": "positive",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "8e1e8529232a4da768fe3b4bd82b6314e00543b5bf63454f16078ae26aaa93de",
+        "elapsed_ms": 0.016,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "8e1e8529232a4da768fe3b4bd82b6314e00543b5bf63454f16078ae26aaa93de",
+        "raw_score": 0.5724,
+        "elapsed_ms": 90.43,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 90.58
+    },
+    {
+      "id": "EN06",
+      "lang": "en",
+      "text": "The road is not closed.",
+      "expected": "access_update",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "3ee476bcaf27476cba1a383533d5a5a24a12f5d164cc361e68a804ed2d1ebf30",
+        "elapsed_ms": 0.019,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "3ee476bcaf27476cba1a383533d5a5a24a12f5d164cc361e68a804ed2d1ebf30",
+        "raw_score": 0.6586,
+        "elapsed_ms": 69.68,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.84
+    },
+    {
+      "id": "EN07",
+      "lang": "en",
+      "text": "The road closure has been cancelled.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "b28ff5973af6501251840d003dbe886217bd649a83e2f7442e2f7da93665a735",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "b28ff5973af6501251840d003dbe886217bd649a83e2f7442e2f7da93665a735",
+        "raw_score": 0.7464,
+        "elapsed_ms": 69.54,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.69
+    },
+    {
+      "id": "EN08",
+      "lang": "en",
+      "text": "The bridge has reopened after inspection.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "ad9ac69bff438893d23b3a5d3813c75031b49f792e09e9917470b3664258d877",
+        "elapsed_ms": 0.009,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "ad9ac69bff438893d23b3a5d3813c75031b49f792e09e9917470b3664258d877",
+        "raw_score": 0.7227,
+        "elapsed_ms": 70.89,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.04
+    },
+    {
+      "id": "EN09",
+      "lang": "en",
+      "text": "There is no road restriction in the latest report.",
+      "expected": "access_update",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "235690c5bfce4b1f1997db2d0cc372cc86b9101c25a16121a7c12676704dcdad",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "235690c5bfce4b1f1997db2d0cc372cc86b9101c25a16121a7c12676704dcdad",
+        "raw_score": 0.3208,
+        "elapsed_ms": 71.58,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.72
+    },
+    {
+      "id": "EN10",
+      "lang": "en",
+      "text": "The earlier report of a blocked road was incorrect; it has been withdrawn.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "50692b84d6abb2dffe342cce7099226f0f3c52c22d4b3d214ddec84346d040a7",
+        "elapsed_ms": 0.011,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "50692b84d6abb2dffe342cce7099226f0f3c52c22d4b3d214ddec84346d040a7",
+        "raw_score": 0.6476,
+        "elapsed_ms": 70.81,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.96
+    },
+    {
+      "id": "NO06",
+      "lang": "no",
+      "text": "Veien er ikke stengt.",
+      "expected": "access_update",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "07d37e96d2abc0c208918b6dd8ccae3a21467ab74260caa209214fc27aff806c",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "07d37e96d2abc0c208918b6dd8ccae3a21467ab74260caa209214fc27aff806c",
+        "raw_score": 0.611,
+        "elapsed_ms": 69.72,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.87
+    },
+    {
+      "id": "NO07",
+      "lang": "no",
+      "text": "Stengningen av veien er opphevet.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "ebd881e7c0cc9cd71656675c9c33ee2a980b441c4914f1440c59c89cbc1c8f82",
+        "elapsed_ms": 0.009,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "ebd881e7c0cc9cd71656675c9c33ee2a980b441c4914f1440c59c89cbc1c8f82",
+        "raw_score": 0.5603,
+        "elapsed_ms": 69.74,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.87
+    },
+    {
+      "id": "NO08",
+      "lang": "no",
+      "text": "Brua er gjenåpnet etter kontroll.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "5df3d06a444086d9f35634bb675407a41656c04b9cf99c82c5066bb19c64bb76",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "5df3d06a444086d9f35634bb675407a41656c04b9cf99c82c5066bb19c64bb76",
+        "raw_score": 0.4708,
+        "elapsed_ms": 74.42,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 74.59
+    },
+    {
+      "id": "NO09",
+      "lang": "no",
+      "text": "Det er ingen restriksjon på veien i den siste meldingen.",
+      "expected": "access_update",
+      "tag": "negation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "6ae06b4c1892a65f707dd557c171ce3665cdf518ca5ca282495238258384f870",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "6ae06b4c1892a65f707dd557c171ce3665cdf518ca5ca282495238258384f870",
+        "raw_score": 0.5629,
+        "elapsed_ms": 70.8,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.96
+    },
+    {
+      "id": "NO10",
+      "lang": "no",
+      "text": "Den tidligere meldingen om sperret vei var feil og er trukket tilbake.",
+      "expected": "access_update",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "access_update",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "f6e5c0b21e29dfb74358b80088be9375af24fa598aebeb9f5c727336d995cb4e",
+        "elapsed_ms": 0.011,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "f6e5c0b21e29dfb74358b80088be9375af24fa598aebeb9f5c727336d995cb4e",
+        "raw_score": 0.8824,
+        "elapsed_ms": 68.59,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 68.74
+    },
+    {
+      "id": "EN11",
+      "lang": "en",
+      "text": "Strong wind and heavy snow are forecast this evening.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "a8a862da4d64a6a9cd477edeb42a2ec9d7ab4ea4ec6309a9e97888b1adf7f2d4",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "a8a862da4d64a6a9cd477edeb42a2ec9d7ab4ea4ec6309a9e97888b1adf7f2d4",
+        "raw_score": 0.999,
+        "elapsed_ms": 70.81,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.94
+    },
+    {
+      "id": "EN12",
+      "lang": "en",
+      "text": "A blizzard warning is valid until 21:00 UTC.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "80cac4e79406e512261bd4182bbd0620225f4c8ec1a4976e554cba48f7538bfa",
+        "elapsed_ms": 0.009,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "80cac4e79406e512261bd4182bbd0620225f4c8ec1a4976e554cba48f7538bfa",
+        "raw_score": 0.9853,
+        "elapsed_ms": 70.5,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.62
+    },
+    {
+      "id": "EN13",
+      "lang": "en",
+      "text": "The weather warning has been cancelled.",
+      "expected": "weather",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "c982e4ce3559d674ed5d0aedc6618243c640d075f31b4134d4b4167ac8d2d5b6",
+        "elapsed_ms": 0.008,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "c982e4ce3559d674ed5d0aedc6618243c640d075f31b4134d4b4167ac8d2d5b6",
+        "raw_score": 0.5735,
+        "elapsed_ms": 71.05,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.18
+    },
+    {
+      "id": "EN14",
+      "lang": "en",
+      "text": "There is no snow forecast for tonight.",
+      "expected": "weather",
+      "tag": "negation",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "01f3c65d44d0ee1857ffc2f78b9a03778528d95c95a213e382f344d4f36c05f8",
+        "elapsed_ms": 0.008,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "01f3c65d44d0ee1857ffc2f78b9a03778528d95c95a213e382f344d4f36c05f8",
+        "raw_score": 0.9981,
+        "elapsed_ms": 69.96,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.09
+    },
+    {
+      "id": "EN15",
+      "lang": "en",
+      "text": "Wind gusts of 25 metres per second were measured at the station.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "5d8ea153cae086394bf6c89a55b084b8d9aa62c72b526808b1da51da109df459",
+        "elapsed_ms": 0.009,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "5d8ea153cae086394bf6c89a55b084b8d9aa62c72b526808b1da51da109df459",
+        "raw_score": 0.7966,
+        "elapsed_ms": 72.13,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.26
+    },
+    {
+      "id": "NO11",
+      "lang": "no",
+      "text": "Det er meldt sterk vind og mye snø i kveld.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "cdd26fdfacc920f5b0b5707637a4eed1db431daf0629034f5c0db09af59ae68e",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "cdd26fdfacc920f5b0b5707637a4eed1db431daf0629034f5c0db09af59ae68e",
+        "raw_score": 0.9988,
+        "elapsed_ms": 71.74,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.92
+    },
+    {
+      "id": "NO12",
+      "lang": "no",
+      "text": "Farevarsel om snøstorm gjelder til klokken 21 UTC.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "1cf7a713f83040c539792b967815223e2edfb9baa1df0b3491aef2516573ffae",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "1cf7a713f83040c539792b967815223e2edfb9baa1df0b3491aef2516573ffae",
+        "raw_score": 0.9703,
+        "elapsed_ms": 87.75,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 87.92
+    },
+    {
+      "id": "NO13",
+      "lang": "no",
+      "text": "Farevarselet om uvær er avlyst.",
+      "expected": "weather",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "32e3e3688c950725105526b5b85bacd5c2b3bf661fb8d0305790c679402fadc4",
+        "elapsed_ms": 0.021,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "32e3e3688c950725105526b5b85bacd5c2b3bf661fb8d0305790c679402fadc4",
+        "raw_score": 0.991,
+        "elapsed_ms": 71.43,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.59
+    },
+    {
+      "id": "NO14",
+      "lang": "no",
+      "text": "Det er ikke meldt snø i natt.",
+      "expected": "weather",
+      "tag": "negation",
+      "baseline": {
+        "category": "weather",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "47119af722a4f230939f5eacc59b927eb7c95e8379d21aff51361eebeebda16a",
+        "elapsed_ms": 0.023,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "weather",
+        "method": "laya-multilingual",
+        "text_sha256": "47119af722a4f230939f5eacc59b927eb7c95e8379d21aff51361eebeebda16a",
+        "raw_score": 0.791,
+        "elapsed_ms": 75.45,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 75.61
+    },
+    {
+      "id": "NO15",
+      "lang": "no",
+      "text": "Vindkast på 25 meter per sekund er målt på stasjonen.",
+      "expected": "weather",
+      "tag": "positive",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "a9b81f414790498f7e1ec734a75d6da0d4ab99434f49fa7017ae9ff984ebd0ca",
+        "elapsed_ms": 0.016,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "a9b81f414790498f7e1ec734a75d6da0d4ab99434f49fa7017ae9ff984ebd0ca",
+        "raw_score": 0.7265,
+        "elapsed_ms": 70.95,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.11
+    },
+    {
+      "id": "EN16",
+      "lang": "en",
+      "text": "The depot needs 200 litres of diesel before morning.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "b55e997e22dfd18277071fd589b8dbfa5712008d1639ce1f85c05b500c7862b7",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "b55e997e22dfd18277071fd589b8dbfa5712008d1639ce1f85c05b500c7862b7",
+        "raw_score": 0.9891,
+        "elapsed_ms": 72.52,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.68
+    },
+    {
+      "id": "EN17",
+      "lang": "en",
+      "text": "The medicine delivery will arrive two hours late.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "97e8316017191ef1a1cd6fa0fe6fd4398b56f57d63fb6bf3fecd57d67a108da7",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "97e8316017191ef1a1cd6fa0fe6fd4398b56f57d63fb6bf3fecd57d67a108da7",
+        "raw_score": 0.6383,
+        "elapsed_ms": 73.76,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 73.92
+    },
+    {
+      "id": "EN18",
+      "lang": "en",
+      "text": "The generator has broken down and needs a replacement.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "45d47cacfbaff9a0a8e5439014f6bc9fb515df4730c7f166700f9d9aa91eb40f",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "45d47cacfbaff9a0a8e5439014f6bc9fb515df4730c7f166700f9d9aa91eb40f",
+        "raw_score": 0.6888,
+        "elapsed_ms": 72.25,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.41
+    },
+    {
+      "id": "EN19",
+      "lang": "en",
+      "text": "We do not need additional fuel; the tanks are full.",
+      "expected": "supply",
+      "tag": "negation",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "4a26f23a67cf3a33dfb8b2cf431c8b1ae94d0c96750ece35918de819a1fe78b8",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "4a26f23a67cf3a33dfb8b2cf431c8b1ae94d0c96750ece35918de819a1fe78b8",
+        "raw_score": 0.997,
+        "elapsed_ms": 71.65,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.8
+    },
+    {
+      "id": "EN20",
+      "lang": "en",
+      "text": "The food shipment has been cancelled by the supplier.",
+      "expected": "supply",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "53e3e71181719fdbcc89c9152b178a42c405e43513d0cdcef9ad588a04e595ef",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "53e3e71181719fdbcc89c9152b178a42c405e43513d0cdcef9ad588a04e595ef",
+        "raw_score": 0.7864,
+        "elapsed_ms": 86.53,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 86.69
+    },
+    {
+      "id": "NO16",
+      "lang": "no",
+      "text": "Lageret trenger 200 liter diesel før morgenen.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "b03363fb9a10d8599d3b33ab8d4e8fc9e9f95394279b5d4bf250f6112c5875de",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "b03363fb9a10d8599d3b33ab8d4e8fc9e9f95394279b5d4bf250f6112c5875de",
+        "raw_score": 0.9962,
+        "elapsed_ms": 73.48,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 73.64
+    },
+    {
+      "id": "NO17",
+      "lang": "no",
+      "text": "Leveransen av medisin blir to timer forsinket.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "6f411bddf87d7bfc81867618e312946904bb3ec08af46be7165c4a7435e698b3",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "6f411bddf87d7bfc81867618e312946904bb3ec08af46be7165c4a7435e698b3",
+        "raw_score": 0.8003,
+        "elapsed_ms": 72.5,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.66
+    },
+    {
+      "id": "NO18",
+      "lang": "no",
+      "text": "Generatoren har sluttet å virke og må erstattes.",
+      "expected": "supply",
+      "tag": "positive",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "411d730aaad3e4805b512cc1a73dec4c6884d241718850d612a0dd434e8b2424",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "411d730aaad3e4805b512cc1a73dec4c6884d241718850d612a0dd434e8b2424",
+        "raw_score": 0.7024,
+        "elapsed_ms": 71.74,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 71.89
+    },
+    {
+      "id": "NO19",
+      "lang": "no",
+      "text": "Vi trenger ikke mer drivstoff. Tankene er fulle.",
+      "expected": "supply",
+      "tag": "negation",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "7118b4e76f77c898487df5ddcf79a9c2bfc78507d1d77a7eddc71db8ebd86e09",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "7118b4e76f77c898487df5ddcf79a9c2bfc78507d1d77a7eddc71db8ebd86e09",
+        "raw_score": 0.999,
+        "elapsed_ms": 72.45,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.6
+    },
+    {
+      "id": "NO20",
+      "lang": "no",
+      "text": "Leveransen av mat er kansellert av leverandøren.",
+      "expected": "supply",
+      "tag": "cancellation",
+      "baseline": {
+        "category": "supply",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "9e8ae7ba2f095c4b6ca225eb376d6ad6dd158a2b5a3c15509d573f3004584dda",
+        "elapsed_ms": 0.012,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "supply",
+        "method": "laya-multilingual",
+        "text_sha256": "9e8ae7ba2f095c4b6ca225eb376d6ad6dd158a2b5a3c15509d573f3004584dda",
+        "raw_score": 0.8974,
+        "elapsed_ms": 72.48,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 72.64
+    },
+    {
+      "id": "EN21",
+      "lang": "en",
+      "text": "Is the road closed?",
+      "expected": "unclear",
+      "tag": "question",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "41c7db7d025f8fb4710fabea8f3c5b21c5dd053ef174491dca04c741249bafe8",
+        "elapsed_ms": 0.007,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "41c7db7d025f8fb4710fabea8f3c5b21c5dd053ef174491dca04c741249bafe8",
+        "raw_score": 0.899,
+        "elapsed_ms": 70.22,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.36
+    },
+    {
+      "id": "EN22",
+      "lang": "en",
+      "text": "One source reports the road closed; another reports it open. The reports are conflicting.",
+      "expected": "unclear",
+      "tag": "conflict",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "d8d0ba28e4cf721c5a243a8bc094587ffa81eddc361aa93683ec33f01e5973d4",
+        "elapsed_ms": 0.007,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "d8d0ba28e4cf721c5a243a8bc094587ffa81eddc361aa93683ec33f01e5973d4",
+        "raw_score": 0.7515,
+        "elapsed_ms": 79.6,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 79.76
+    },
+    {
+      "id": "EN23",
+      "lang": "en",
+      "text": "Update received. Details to follow.",
+      "expected": "unclear",
+      "tag": "missing",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "7af138f67b136df9acd8a3c783c9a226efbb3e4fcdab23af3a9a6d67f00d2e1f",
+        "elapsed_ms": 0.011,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "7af138f67b136df9acd8a3c783c9a226efbb3e4fcdab23af3a9a6d67f00d2e1f",
+        "raw_score": 0.3723,
+        "elapsed_ms": 70.29,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.42
+    },
+    {
+      "id": "EN24",
+      "lang": "en",
+      "text": "If the road closes tomorrow, we may need to change the schedule.",
+      "expected": "unclear",
+      "tag": "hypothetical",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "e02a567d24fe26d057e98e43ef8f727de5275ca1c637f212b689242d0473d39c",
+        "elapsed_ms": 0.005,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "e02a567d24fe26d057e98e43ef8f727de5275ca1c637f212b689242d0473d39c",
+        "raw_score": 0.6705,
+        "elapsed_ms": 70.52,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.65
+    },
+    {
+      "id": "EN25",
+      "lang": "en",
+      "text": "The report does not say whether the bridge is closed.",
+      "expected": "unclear",
+      "tag": "missing",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "89150e3e2e096b181f0b5594db7dbb4fa0d34024bde8d47552bf0fcb9cd73bdb",
+        "elapsed_ms": 0.014,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "89150e3e2e096b181f0b5594db7dbb4fa0d34024bde8d47552bf0fcb9cd73bdb",
+        "raw_score": 0.8878,
+        "elapsed_ms": 69.65,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.78
+    },
+    {
+      "id": "NO21",
+      "lang": "no",
+      "text": "Er veien stengt?",
+      "expected": "unclear",
+      "tag": "question",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "767c32b9e9bfa0ce660c0752115f96b33adafac59bbdcc559bd958e84faf1269",
+        "elapsed_ms": 0.005,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "767c32b9e9bfa0ce660c0752115f96b33adafac59bbdcc559bd958e84faf1269",
+        "raw_score": 0.977,
+        "elapsed_ms": 69.82,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 69.95
+    },
+    {
+      "id": "NO22",
+      "lang": "no",
+      "text": "En kilde sier at veien er stengt, en annen sier åpen. Opplysningene er motstridende.",
+      "expected": "unclear",
+      "tag": "conflict",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "76940ee5a723e6ae06383e4e186303b0139194c762f28aea7484057d42a8e6ba",
+        "elapsed_ms": 0.008,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "76940ee5a723e6ae06383e4e186303b0139194c762f28aea7484057d42a8e6ba",
+        "raw_score": 0.9763,
+        "elapsed_ms": 78.64,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 78.78
+    },
+    {
+      "id": "NO23",
+      "lang": "no",
+      "text": "Oppdatering mottatt. Detaljer kommer senere.",
+      "expected": "unclear",
+      "tag": "missing",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "b5e852e6470b15fa9d2cd97f3aa1af8954fa95df105a54b74c117f3fbdac94ad",
+        "elapsed_ms": 0.01,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "b5e852e6470b15fa9d2cd97f3aa1af8954fa95df105a54b74c117f3fbdac94ad",
+        "raw_score": 0.839,
+        "elapsed_ms": 70.18,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.32
+    },
+    {
+      "id": "NO24",
+      "lang": "no",
+      "text": "Hvis veien blir stengt i morgen, må vi endre planen.",
+      "expected": "unclear",
+      "tag": "hypothetical",
+      "baseline": {
+        "category": "unclear",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "d225fffe608dd450eae6330743fb8a2ac297edca9f376d27314cbc1cbe87a057",
+        "elapsed_ms": 0.007,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "d225fffe608dd450eae6330743fb8a2ac297edca9f376d27314cbc1cbe87a057",
+        "raw_score": 0.774,
+        "elapsed_ms": 68.78,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 68.91
+    },
+    {
+      "id": "NO25",
+      "lang": "no",
+      "text": "Meldingen sier ikke om brua er stengt.",
+      "expected": "unclear",
+      "tag": "missing",
+      "baseline": {
+        "category": "access_disruption",
+        "method": "keyword-baseline-v1",
+        "text_sha256": "f0c023f6ff4d04d72f4dd4767f153090af3e6647e6dce28780eb68a5c86a812a",
+        "elapsed_ms": 0.013,
+        "raw_score": null
+      },
+      "laya": {
+        "category": "unclear",
+        "method": "laya-multilingual",
+        "text_sha256": "f0c023f6ff4d04d72f4dd4767f153090af3e6647e6dce28780eb68a5c86a812a",
+        "raw_score": 0.8535,
+        "elapsed_ms": 69.96,
+        "model_id": "convaiinnovations/laya-multilingual",
+        "model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+        "laya_version": "0.4.8",
+        "device": "cpu",
+        "network_blocked": true
+      },
+      "end_to_end_ms": 70.11
+    }
+  ]
+}

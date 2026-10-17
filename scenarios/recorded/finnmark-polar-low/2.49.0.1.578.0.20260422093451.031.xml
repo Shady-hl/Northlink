@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>2.49.0.1.578.0.20260422093451.031</identifier>
+  <sender>meteorologi@met.no</sender>
+  <sent>2026-04-22T10:46:55+00:00</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <code>profile:cap:https://git.smhi.se/metcoop/metcoop-cap-profile/blob/version-1.0/metcoop-cap-profile.md</code>
+  <incidents>0000052324</incidents>
+  <info>
+    <language>no</language>
+    <category>Met</category>
+    <category>Transport</category>
+    <category>Infra</category>
+    <event>Polart lavtrykk</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <eventCode>
+        <valueName>OET:v1.0</valueName>
+        <value>OET-023</value>
+    </eventCode>
+    <eventCode>
+        <valueName>eventType</valueName>
+        <value>polarLow</value>
+    </eventCode>
+    <onset>2026-04-23T06:00:00+00:00</onset>
+    <expires>2026-04-24T07:00:00+00:00</expires>
+    <senderName>Meteorologisk Institutt</senderName>
+    <headline>Polart lavtrykk, gult nivå, Øst-Finnmark, 2026-04-23T06:00:00+00:00, 2026-04-24T07:00:00+00:00</headline>
+    <description>Et polart lavtrykk vil torsdag morgen dannes sørøst for Svalbard og vil bevege seg i retning Øst-Finnmark. Torsdag kveld vil lavtrykket ligge nordøst for Varangerhalvøya. I vestlig del av lavtrykket vil det være nordvestlig liten storm, periodevis full storm. Lavtrykket ventes å svekkes fredag morgen.</description>
+    <instruction>Raske endringer i været: Vær forberedt på raskt redusert sikt. Lokalt vanskelige kjøreforhold: Sjekk veimeldinger på vegvesen.no/trafikk. Vanskelig fremkommelighet: Ta med varme klær, og forvent stans eller redusert hastighet i trafikken. Vurder om reisen er nødvendig. Offentlig transport kan bli berørt: Forvent enkelte innstilte hurtigbåter og fergeruter. Følg råd og sjekk status fra transportaktører. </instruction>
+    <web>https://www.met.no/vaer-og-klima/ekstremvaervarsler-og-andre-farevarsler/vaerfenomener-som-kan-gi-farevarsel-fra-met/polare-lavtrykk</web>
+    <contact>https://www.met.no/kontakt-oss</contact>
+    <parameter>
+        <valueName>eventEndingTime</valueName>
+        <value>2026-04-24T07:00:00+00:00</value>
+    </parameter>
+    <parameter>
+        <valueName>consequences</valueName>
+        <value>Raske endringer i været: Vind og værforhold kan endre seg raskt. Lokalt vanskelige kjøreforhold: Det kan være lokalt vanskelige kjøreforhold på grunn av snøfokk som følge av kraftig snøfall og sterk vind. Noen reiser vil kunne få lengre reisetid. Veier kan bli stengt og kolonnekjøring kan bli innført på kort varsel. Offentlig transport kan bli berørt: Det kan bli forsinkelser eller kansellerte flyruter som følge av kraftig vind og snøfall. Vanskelig fremkommelighet: Snø, snøfokk og redusert sikt kan føre til vanskelig fremkommelighet. </value>
+    </parameter>
+    <parameter>
+        <valueName>eventAwarenessName</valueName>
+        <value>Polart lavtrykk</value>
+    </parameter>
+    <parameter>        
+        <valueName>awareness_level</valueName>
+        <value>2; yellow; Moderate</value>
+    </parameter>
+    <parameter>
+    <valueName>riskMatrixColor</valueName>
+    <value>Yellow</value>
+    </parameter>
+    <parameter>
+        <valueName>awarenessSeriousness</valueName>
+        <value>Utfordrende situasjon</value>
+    </parameter>
+    <parameter>
+        <valueName>awareness_type</valueName>
+        <value>1; wind</value>
+    </parameter>
+    <parameter>
+        <valueName>awarenessResponse</valueName>
+        <value>Følg med</value>
+    </parameter>
+    <parameter>
+	    <valueName>administrativeId</valueName>
+	    <value>county:56</value>
+    </parameter>
+    <parameter>
+    <valueName>MunicipalityId</valueName>
+    <value>5605;5607;5620;5624;5626;5628;5630;5632;5634;5636</value>
+    </parameter>
+    <resource>
+        <resourceDesc>Kart over Polart lavtrykk, gult nivå, Øst-Finnmark, 2026-04-23T06:00:00+00:00, 2026-04-24T07:00:00+00:00</resourceDesc>
+        <mimeType>image/png</mimeType>
+        <uri>https://slaps.met.no/cap-images/cddd1f81-0a59-49ec-a692-26eba60693c4.png</uri>
+    </resource>
+    <area>
+      <areaDesc>Øst-Finnmark</areaDesc>
+      
+          <polygon>76.2217,25.6809 75.4008,24.6886 73.7326,26.2495 71.8493,26.9046 70.19,26.1641 69.781,30.8496 70.0002,31.3288 70.0009,32.806 69.2534,35.4052 70.5074,36.9871 72.5091,32.3479 72.5007,30.117 75.5351,30.0371 76.2217,25.6809 76.2217,25.6809 76.2217,25.6809</polygon>
+    <altitude>0</altitude>
+    <ceiling>9000</ceiling>
+    </area>
+  </info>
+  <info>
+    <language>en-GB</language>
+    <category>Met</category>
+    <category>Transport</category>
+    <category>Infra</category>
+    <event>Polar low</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <eventCode>
+        <valueName>OET:v1.0</valueName>
+        <value>OET-023</value>
+    </eventCode>
+    <eventCode>
+        <valueName>eventType</valueName>
+        <value>polarLow</value>
+    </eventCode>
+    <onset>2026-04-23T06:00:00+00:00</onset>
+    <expires>2026-04-24T07:00:00+00:00</expires>
+    <senderName>MET Norway</senderName>
+    <headline>Polar low, yellow level, East Finnmark, 2026-04-23T06:00:00+00:00, 2026-04-24T07:00:00+00:00</headline>
+    <description>A polar low will Thursday morning develop southeast of Svalbard and will move towards East Finnmark. Thursday evening the center will be northeast of Varangerhalvøya. West of center the wind is expected to reach northwest strong gale 9, occasionally storm force 10. The low is expected to weaken Friday morning.</description>
+    <instruction>Rapid changes in weather: Be prepared for rapidly reduced visibility. Locally difficult driving conditions: Check road conditions at vegvesen.no/trafikk. Difficult accessibility: Bring warm clothes and expect stops or reduced speeds in traffic. Consider if travel is necessary. Public transport may be affected: Expect some cancelled ferries and ferry routes. Follow advice and check status from transport operators. </instruction>
+    <web>https://www.met.no/vaer-og-klima/ekstremvaervarsler-og-andre-farevarsler/vaerfenomener-som-kan-gi-farevarsel-fra-met/polare-lavtrykk</web>
+    <contact>https://www.met.no/en/contact-us</contact>
+    <parameter>
+        <valueName>eventEndingTime</valueName>
+        <value>2026-04-24T07:00:00+00:00</value>
+    </parameter>
+    <parameter>
+        <valueName>consequences</valueName>
+        <value>Rapid changes in weather: The wind and weather conditions can change rapidly. Locally difficult driving conditions: There may be difficult driving conditions due to snow drift from heavy snowfall and strong winds. Some trips may experience longer travel time. Roads may be closed, and driving restrictions may be imposed at short notice. Public transport may be affected: Flights may be delayed or cancelled due to strong winds and snow. Difficult accessibility: Snow, snow drift, and reduced visibility may make it difficult to get around. </value>
+    </parameter>
+    <parameter>
+        <valueName>eventAwarenessName</valueName>
+        <value>Polar low</value>
+    </parameter>
+    <parameter>        
+        <valueName>awareness_level</valueName>
+        <value>2; yellow; Moderate</value>
+    </parameter>
+    <parameter>
+    <valueName>riskMatrixColor</valueName>
+    <value>Yellow</value>
+    </parameter>
+    <parameter>
+        <valueName>awarenessSeriousness</valueName>
+        <value>Challenging situation</value>
+    </parameter>
+    <parameter>
+        <valueName>awareness_type</valueName>
+        <value>1; wind</value>
+    </parameter>
+    <parameter>
+        <valueName>awarenessResponse</valueName>
+        <value>Be aware</value>
+    </parameter>
+    <parameter>
+	    <valueName>administrativeId</valueName>
+	    <value>county:56</value>
+    </parameter>
+    <parameter>
+    <valueName>MunicipalityId</valueName>
+    <value>5605;5607;5620;5624;5626;5628;5630;5632;5634;5636</value>
+    </parameter>
+    <resource>
+        <resourceDesc>Map over Polar low, yellow level, East Finnmark, 2026-04-23T06:00:00+00:00, 2026-04-24T07:00:00+00:00</resourceDesc>
+        <mimeType>image/png</mimeType>
+        <uri>https://slaps.met.no/cap-images/cddd1f81-0a59-49ec-a692-26eba60693c4.png</uri>
+    </resource>
+    <area>
+      <areaDesc>East Finnmark</areaDesc>
+      
+          <polygon>76.2217,25.6809 75.4008,24.6886 73.7326,26.2495 71.8493,26.9046 70.19,26.1641 69.781,30.8496 70.0002,31.3288 70.0009,32.806 69.2534,35.4052 70.5074,36.9871 72.5091,32.3479 72.5007,30.117 75.5351,30.0371 76.2217,25.6809 76.2217,25.6809 76.2217,25.6809</polygon>
+    <altitude>0</altitude>
+    <ceiling>9000</ceiling>
+    </area>
+  </info>
+</alert>

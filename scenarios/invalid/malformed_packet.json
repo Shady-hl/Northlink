@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "packet_id": "bad-packet",
+  "kind": "synthetic",
+  "retrieved_at": "2026-10-16T11:58:00",
+  "events": [
+    {
+      "event_id": "X1",
+      "revision": 0,
+      "origin": "demo-road",
+      "published_at": "yesterday",
+      "event_type": "closure",
+      "status": "maybe"
+    }
+  ]
+}

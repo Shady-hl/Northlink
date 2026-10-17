@@ -1,0 +1,27 @@
+{
+  "tests": "89 passed in 5.82s",
+  "core_unchanged_from_combined_f217dd5": {
+    "models.py": true,
+    "loader.py": true,
+    "store.py": true,
+    "reconcile.py": true,
+    "impact.py": true,
+    "reviews.py": true,
+    "handover.py": true,
+    "replay.py": true,
+    "briefing.py": true,
+    "workspace.py": true
+  },
+  "browser_checks": {
+    "evidence_detail": "F1 reopened, earlier R1 retained; readable source with IDs under disclosure",
+    "record_new_review": "opens Map & review and Review toolbox, F1 remains selected",
+    "brief": "facts, uncertainty, retained human decision, next review action; exact export retained",
+    "raw_evidence": "record inspector with stored record disclosure",
+    "report_intake": "separate staged inbox; rules default; confirmation/save disabled for empty input"
+  },
+  "limits": [
+    "Visual inspection in current narrow app pane, not a field usability trial",
+    "Physical Wi-Fi-off and second laptop acceptance remain unverified",
+    "No claim of military operational readiness"
+  ]
+}

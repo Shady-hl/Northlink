@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "packet_id": "synthetic-packet-A-late-E2r1",
+  "kind": "synthetic",
+  "retrieved_at": "2026-10-16T11:58:00Z",
+  "label": "SYNTHETIC late copy of E2 revision 1 (arrives after the correction)",
+  "coverage": [
+    {
+      "origin": "demo-road",
+      "scope_id": "C2",
+      "source_retrieved_at": "2026-10-16T11:58:00Z",
+      "successful": true
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E2",
+      "revision": 1,
+      "origin": "demo-road",
+      "corridor_id": "C2",
+      "published_at": "2026-10-16T11:40:00Z",
+      "valid_from": "2026-10-16T12:00:00Z",
+      "valid_until": "2026-10-16T15:00:00Z",
+      "event_type": "closure",
+      "status": "active",
+      "claim_key": "C2-restriction-12to15",
+      "claim_value": "reported_closed",
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic closure for the demonstration"
+    }
+  ]
+}

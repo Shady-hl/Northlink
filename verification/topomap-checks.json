@@ -1,0 +1,20 @@
+{
+  "projection": "EPSG:3857 display only; source exposure remains WGS84",
+  "images": 4,
+  "source_tiles": 252,
+  "image_bytes": 1361228,
+  "maximum_source_zoom": 11,
+  "acquired_at": "2026-10-17T12:54:58.327822+00:00",
+  "core_unchanged": {
+    "models.py": true,
+    "loader.py": true,
+    "store.py": true,
+    "reconcile.py": true,
+    "impact.py": true,
+    "reviews.py": true,
+    "handover.py": true,
+    "replay.py": true,
+    "briefing.py": true,
+    "workspace.py": true
+  }
+}

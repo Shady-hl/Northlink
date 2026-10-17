@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "packet_id": "synthetic-packet-A",
+  "kind": "synthetic",
+  "retrieved_at": "2026-10-16T11:58:00Z",
+  "label": "SYNTHETIC demo packet A - Northlink demo origins, not official sources",
+  "coverage": [
+    {
+      "origin": "demo-weather",
+      "scope_id": "C1",
+      "source_retrieved_at": "2026-10-16T11:58:00Z",
+      "successful": true
+    },
+    {
+      "origin": "demo-road",
+      "scope_id": "C2",
+      "source_retrieved_at": "2026-10-16T11:58:00Z",
+      "successful": true
+    },
+    {
+      "origin": "demo-report-alpha",
+      "scope_id": "C3",
+      "source_retrieved_at": "2026-10-16T11:58:00Z",
+      "successful": true
+    },
+    {
+      "origin": "demo-report-beta",
+      "scope_id": "C3",
+      "source_retrieved_at": "2026-10-16T11:58:00Z",
+      "successful": true
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E1",
+      "revision": 1,
+      "origin": "demo-weather",
+      "corridor_id": "C1",
+      "published_at": "2026-10-16T11:45:00Z",
+      "valid_from": "2026-10-16T12:00:00Z",
+      "valid_until": "2026-10-16T16:00:00Z",
+      "event_type": "advisory",
+      "status": "active",
+      "claim_key": null,
+      "claim_value": null,
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic advisory; potential exposure"
+    },
+    {
+      "event_id": "E2",
+      "revision": 1,
+      "origin": "demo-road",
+      "corridor_id": "C2",
+      "published_at": "2026-10-16T11:40:00Z",
+      "valid_from": "2026-10-16T12:00:00Z",
+      "valid_until": "2026-10-16T15:00:00Z",
+      "event_type": "closure",
+      "status": "active",
+      "claim_key": "C2-restriction-12to15",
+      "claim_value": "reported_closed",
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic closure for the demonstration"
+    },
+    {
+      "event_id": "E3A",
+      "revision": 1,
+      "origin": "demo-report-alpha",
+      "corridor_id": "C3",
+      "published_at": "2026-10-16T11:50:00Z",
+      "valid_from": "2026-10-16T12:00:00Z",
+      "valid_until": "2026-10-16T15:00:00Z",
+      "event_type": "report",
+      "status": "active",
+      "claim_key": "C3-restriction-12to15",
+      "claim_value": "reported_closed",
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic report: corridor reported closed"
+    },
+    {
+      "event_id": "E3B",
+      "revision": 1,
+      "origin": "demo-report-beta",
+      "corridor_id": "C3",
+      "published_at": "2026-10-16T11:55:00Z",
+      "valid_from": "2026-10-16T12:00:00Z",
+      "valid_until": "2026-10-16T15:00:00Z",
+      "event_type": "report",
+      "status": "active",
+      "claim_key": "C3-restriction-12to15",
+      "claim_value": "reported_open",
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic report: corridor reported open"
+    },
+    {
+      "event_id": "E4",
+      "revision": 1,
+      "origin": "demo-weather",
+      "corridor_id": "C1",
+      "published_at": "2026-10-16T07:00:00Z",
+      "valid_from": "2026-10-16T08:00:00Z",
+      "valid_until": "2026-10-16T09:00:00Z",
+      "event_type": "advisory",
+      "status": "active",
+      "claim_key": null,
+      "claim_value": null,
+      "supersedes_revision": null,
+      "source_url": null,
+      "text": "Synthetic expired advisory"
+    }
+  ]
+}
